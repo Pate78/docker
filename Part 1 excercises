@@ -19,9 +19,16 @@ a9086a97eb99        nginx               "nginx -g 'daemon ..."   About a minute 
 ce
 [damii@centos2 ~]$ docker stop b8
 b8
-[damii@centos2 ~]$ docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
-a9086a97eb99        nginx               "nginx -g 'daemon ..."   2 minutes ago       Up 2 minutes        80/tcp              flamboyant_volhard
+[damii@centos2 ~]$ docker ps -a
+CONTAINER ID        IMAGE                               COMMAND                  CREATED             STATUS                          PORTS               NAMES
+ce56c5403954        nginx                               "nginx -g 'daemon ..."   2 minutes ago       Exited (0) About a minute ago                       elegant_bohr
+b8e4d25295fb        nginx                               "nginx -g 'daemon ..."   3 minutes ago       Exited (0) 59 seconds ago                           gallant_curie
+a9086a97eb99        nginx                               "nginx -g 'daemon ..."   3 minutes ago       Up 3 minutes                    80/tcp              flamboyant_volhard
+3d578d6d58bb        nginx                               "nginx -g 'daemon ..."   3 minutes ago       Exited (0) 3 minutes ago                            inspiring_sammet
+312db04cba29        nginx                               "-d"                     3 minutes ago       Created                                             elegant_colden
+95965409b1b4        nginx                               "nginx -g 'daemon ..."   3 minutes ago       Exited (0) 3 minutes ago                            focused_darwin
+e28a6958a739        devopsdockeruh/exec_bash_exercise   "node index"             11 minutes ago      Exited (0) 10 minutes ago                           fervent_bose
+5cf5901ac15c        devopsdockeruh/pull_exercise        "node index.js"          19 minutes ago      Exited (0) 16 minutes ago                           wizardly_lalande
 
 
 1.3
