@@ -1,3 +1,29 @@
+1.1
+
+^C[damii@centos2 ~]$ docker run -d nginx
+a9086a97eb99f80c4b80fe6bac261c5ffc19ce7ca4e6963f33b704eaea5fcf32
+[damii@centos2 ~]$ docker run -d nginx
+b8e4d25295fb8d7ae660e88d2348f3607c4eb075c0de2908a228d92435d5d851
+[damii@centos2 ~]$
+[damii@centos2 ~]$ docker run -d nginx
+ce56c540395412401fcf4f8711ddd044c9f005b1c97975759a47a4649732395e
+
+[damii@centos2 ~]$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS               NAMES
+ce56c5403954        nginx               "nginx -g 'daemon ..."   About a minute ago   Up About a minute   80/tcp              elegant_bohr
+b8e4d25295fb        nginx               "nginx -g 'daemon ..."   About a minute ago   Up About a minute   80/tcp              gallant_curie
+a9086a97eb99        nginx               "nginx -g 'daemon ..."   About a minute ago   Up About a minute   80/tcp              flamboyant_volhard
+[damii@centos2 ~]$
+
+[damii@centos2 ~]$ docker stop ce
+ce
+[damii@centos2 ~]$ docker stop b8
+b8
+[damii@centos2 ~]$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+a9086a97eb99        nginx               "nginx -g 'daemon ..."   2 minutes ago       Up 2 minutes        80/tcp              flamboyant_volhard
+
+
 1.3
 Give me the password: basics
 You found the correct password. Secret message is:
