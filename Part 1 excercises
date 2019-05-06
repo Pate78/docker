@@ -113,3 +113,10 @@ Searching..
 sh: 1: curl: not found
 [damii@centos2 ~]$
 
+[damii@centos2 ~]$ docker images
+REPOSITORY                                    TAG                 IMAGE ID            CREATED             SIZE
+docker.io/ubuntu                              16.04               a3551444fc85        9 days ago          119 MB
+fav_distro                                    xenial              a3551444fc85        9 days ago          119 MB
+docker.io/ubuntu                              latest              d131e0fa2585        9 days ago          102 MB
+docker.io/devopsdockeruh/exec_bash_exercise   latest              489b6d8f2ab8        2 months ago        897 MB
+
