@@ -106,22 +106,16 @@ Secret message is:
 root@10e713fc66f8:/usr/app#
 
 1.5 (This is not very well explained in the material imho)
-[damii@centos2 ~]$ docker run --rm -it --name looper-it ubuntu:16.04 sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
-Input website:
-helsinki.fi
-Searching..
-sh: 1: curl: not found
-[damii@centos2 ~]$ docker exec -it looper bash
-root@9da1ca02d934:/# apt-get update
-Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [109 kB]
-Get:2 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
-Get:3 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [816 kB]
-Get:4 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]
-Get:5 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages [12.7 kB]
-Get:6 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [552 kB]
-Get:7 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [6121 B]
-Get:8 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]
-Get:9 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages [1558 kB]
+[damii@centos2 ~]$ docker run ubuntu:16.04 sh -c 'apt-get update; apt-get -y install curl; echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+Get:1 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
+Get:2 http://security.ubuntu.com/ubuntu xenial-security InRelease [109 kB]
+Get:3 http://archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [816 kB]
+Get:5 http://archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]
+Get:6 http://archive.ubuntu.com/ubuntu xenial/main amd64 Packages [1558 kB]
+Get:7 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages [12.7 kB]
+Get:8 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [552 kB]
+Get:9 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [6121 B]
 Get:10 http://archive.ubuntu.com/ubuntu xenial/restricted amd64 Packages [14.1 kB]
 Get:11 http://archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [9827 kB]
 Get:12 http://archive.ubuntu.com/ubuntu xenial/multiverse amd64 Packages [176 kB]
@@ -131,29 +125,34 @@ Get:15 http://archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [
 Get:16 http://archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [19.1 kB]
 Get:17 http://archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages [7942 B]
 Get:18 http://archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [8532 B]
-Fetched 15.8 MB in 5s (2889 kB/s)
-Reading package lists... Done
-root@9da1ca02d934:/# apt-get install curl
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
+Fetched 15.8 MB in 4s (3344 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
 The following additional packages will be installed:
-  ca-certificates krb5-locales libasn1-8-heimdal libcurl3-gnutls libffi6 libgmp10 libgnutls30 libgssapi-krb5-2 libgssapi3-heimdal
-  libhcrypto4-heimdal libheimbase1-heimdal libheimntlm0-heimdal libhogweed4 libhx509-5-heimdal libidn11 libk5crypto3 libkeyutils1
-  libkrb5-26-heimdal libkrb5-3 libkrb5support0 libldap-2.4-2 libnettle6 libp11-kit0 libroken18-heimdal librtmp1 libsasl2-2
-  libsasl2-modules libsasl2-modules-db libsqlite3-0 libssl1.0.0 libtasn1-6 libwind0-heimdal openssl
+  ca-certificates krb5-locales libasn1-8-heimdal libcurl3-gnutls libffi6
+  libgmp10 libgnutls30 libgssapi-krb5-2 libgssapi3-heimdal libhcrypto4-heimdal
+  libheimbase1-heimdal libheimntlm0-heimdal libhogweed4 libhx509-5-heimdal
+  libidn11 libk5crypto3 libkeyutils1 libkrb5-26-heimdal libkrb5-3
+  libkrb5support0 libldap-2.4-2 libnettle6 libp11-kit0 libroken18-heimdal
+  librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libsqlite3-0
+  libssl1.0.0 libtasn1-6 libwind0-heimdal openssl
 Suggested packages:
-  gnutls-bin krb5-doc krb5-user libsasl2-modules-otp libsasl2-modules-ldap libsasl2-modules-sql libsasl2-modules-gssapi-mit
+  gnutls-bin krb5-doc krb5-user libsasl2-modules-otp libsasl2-modules-ldap
+  libsasl2-modules-sql libsasl2-modules-gssapi-mit
   | libsasl2-modules-gssapi-heimdal
 The following NEW packages will be installed:
-  ca-certificates curl krb5-locales libasn1-8-heimdal libcurl3-gnutls libffi6 libgmp10 libgnutls30 libgssapi-krb5-2
-  libgssapi3-heimdal libhcrypto4-heimdal libheimbase1-heimdal libheimntlm0-heimdal libhogweed4 libhx509-5-heimdal libidn11
-  libk5crypto3 libkeyutils1 libkrb5-26-heimdal libkrb5-3 libkrb5support0 libldap-2.4-2 libnettle6 libp11-kit0 libroken18-heimdal
-  librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libsqlite3-0 libssl1.0.0 libtasn1-6 libwind0-heimdal openssl
+  ca-certificates curl krb5-locales libasn1-8-heimdal libcurl3-gnutls libffi6
+  libgmp10 libgnutls30 libgssapi-krb5-2 libgssapi3-heimdal libhcrypto4-heimdal
+  libheimbase1-heimdal libheimntlm0-heimdal libhogweed4 libhx509-5-heimdal
+  libidn11 libk5crypto3 libkeyutils1 libkrb5-26-heimdal libkrb5-3
+  libkrb5support0 libldap-2.4-2 libnettle6 libp11-kit0 libroken18-heimdal
+  librtmp1 libsasl2-2 libsasl2-modules libsasl2-modules-db libsqlite3-0
+  libssl1.0.0 libtasn1-6 libwind0-heimdal openssl
 0 upgraded, 34 newly installed, 0 to remove and 0 not upgraded.
 Need to get 5345 kB of archives.
 After this operation, 19.0 MB of additional disk space will be used.
-Do you want to continue? [Y/n] y
 Get:1 http://archive.ubuntu.com/ubuntu xenial/main amd64 libffi6 amd64 3.2.1-4 [17.8 kB]
 Get:2 http://archive.ubuntu.com/ubuntu xenial/main amd64 libgmp10 amd64 2:6.1.0+dfsg-2 [240 kB]
 Get:3 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libnettle6 amd64 3.2-1ubuntu0.16.04.1 [93.5 kB]
@@ -188,8 +187,8 @@ Get:31 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 librtmp1 amd64
 Get:32 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libcurl3-gnutls amd64 7.47.0-1ubuntu2.12 [185 kB]
 Get:33 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 libsasl2-modules amd64 2.1.26.dfsg1-14ubuntu0.1 [47.5 kB]
 Get:34 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 curl amd64 7.47.0-1ubuntu2.12 [139 kB]
-Fetched 5345 kB in 2s (2450 kB/s)
 debconf: delaying package configuration, since apt-utils is not installed
+Fetched 5345 kB in 1s (2810 kB/s)
 Selecting previously unselected package libffi6:amd64.
 (Reading database ... 4777 files and directories currently installed.)
 Preparing to unpack .../libffi6_3.2.1-4_amd64.deb ...
@@ -305,7 +304,7 @@ Setting up libgnutls30:amd64 (3.4.10-4ubuntu1.4) ...
 Setting up libsqlite3-0:amd64 (3.11.0-1ubuntu1.1) ...
 Setting up libssl1.0.0:amd64 (1.0.2g-1ubuntu4.15) ...
 debconf: unable to initialize frontend: Dialog
-debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 76.)
+debconf: (TERM is not set, so the dialog frontend is not usable.)
 debconf: falling back to frontend: Readline
 debconf: unable to initialize frontend: Readline
 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.22.1 /usr/local/share/perl/5.22.1 /usr/lib/x86_64-linux-gnu/perl5/5.22 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.22 /usr/share/perl/5.22 /usr/local/lib/site_perl /usr/lib/x86_64-linux-gnu/perl-base .) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
@@ -313,7 +312,7 @@ debconf: falling back to frontend: Teletype
 Setting up openssl (1.0.2g-1ubuntu4.15) ...
 Setting up ca-certificates (20170717~16.04.2) ...
 debconf: unable to initialize frontend: Dialog
-debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 76.)
+debconf: (TERM is not set, so the dialog frontend is not usable.)
 debconf: falling back to frontend: Readline
 debconf: unable to initialize frontend: Readline
 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.22.1 /usr/local/share/perl/5.22.1 /usr/lib/x86_64-linux-gnu/perl5/5.22 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl/5.22 /usr/share/perl/5.22 /usr/local/lib/site_perl /usr/lib/x86_64-linux-gnu/perl-base .) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
@@ -346,14 +345,11 @@ Updating certificates in /etc/ssl/certs...
 148 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...
 done.
-root@9da1ca02d934:/# curl http://helsinki.fi
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>301 Moved Permanently</title>
-</head><body>
-<h1>Moved Permanently</h1>
-<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
-</body></html>
-root@9da1ca02d934:/#
+Input website:
+Searching..
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (6) Could not resolve host: http
+
 
 
