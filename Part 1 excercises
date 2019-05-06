@@ -104,3 +104,12 @@ Secret message is:
 "Docker is easy"
 ^C
 root@10e713fc66f8:/usr/app#
+
+1.5 (This is not very well explained in the material imho)
+[damii@centos2 ~]$ docker run --rm -it --name looper-it ubuntu:16.04 sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+Input website:
+helsinki.fi
+Searching..
+sh: 1: curl: not found
+[damii@centos2 ~]$
+
