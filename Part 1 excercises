@@ -85,3 +85,22 @@ Give me the password: basics
 You found the correct password. Secret message is:
 "This is the secret message"
 
+1.4
+[damii@centos2 ~]$ docker run -d --name ex1.4 devopsdockeruh/exec_bash_exercise
+10e713fc66f8d70d1e71a011fc02146ad0118d3d5126ee10380912c5b381a56f
+[damii@centos2 ~]$ docker exec -it ex1.4 bash
+root@10e713fc66f8:/usr/app# tail -f ./logs.txt
+Mon, 06 May 2019 13:23:35 GMT
+Mon, 06 May 2019 13:23:38 GMT
+Mon, 06 May 2019 13:23:41 GMT
+Mon, 06 May 2019 13:23:44 GMT
+Secret message is:
+"Docker is easy"
+Mon, 06 May 2019 13:23:50 GMT
+Mon, 06 May 2019 13:23:53 GMT
+Mon, 06 May 2019 13:23:56 GMT
+Mon, 06 May 2019 13:23:59 GMT
+Secret message is:
+"Docker is easy"
+^C
+root@10e713fc66f8:/usr/app#
